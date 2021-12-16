@@ -1,5 +1,31 @@
+# For some reason the using statements arent working
 using namespace System.Collections
 using namespace System.Collections.Specialized
+using namespace System.Collections.Generic
+
+function Add-toGenericSortedDict {
+<#
+.DESCRIPTION
+Adds to or creates a sorted dictionary
+#>
+[CmdletBinding()]
+param(
+	[Parameter(Mandatory=$false,HelpMessage="Dict if we have one")]
+	[SortedDictionary[string,object]]$sd,
+	[Parameter()]
+	[string]$key,
+	[Parameter()]
+	[object]$val
+)
+if ($sd.GetType().Name -eq 'SortedDictionary`2') {
+	$sd.Add($key, $val)
+} else {
+	$sd = [SortedDictionary[string,object]]::new()
+	$sd.Add($key, $val)
+	return $sd
+}
+return $true
+}
 
 function Add-toDict {
 <#
@@ -68,5 +94,23 @@ function Get-OrderedDict {
         write-output "`$ODict is not there"
     } else {
         write-error "something else happened"
+    }
+}
+function Add-scoopinfotohydict {
+    <#
+    .DESCRIPTION
+    Add pkgkey and `scoop info pkgkey` to dict, only if dict exists.
+    #>
+    [cmdletbinding()]
+    param(
+        [parameter()]
+        [System.Collections.Specialized.HybridDictionary]$hd,
+        [parameter()]
+        [string]$pkgkey
+    )
+    if ($hd.GetType().Name -eq "HybridDictionary") {
+        return $hd.Add($pkgkey, $(scoop info $pkgkey))
+    } else {
+        Write-Error "Wrong Data type, not hybrid dictionary"
     }
 }
