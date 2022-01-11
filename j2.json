@@ -1,0 +1,7 @@
+{
+  "nvim": "nvim is a fork of vim",
+  "code": "\"visual studio code\"",
+  "kate": "\"from kde environment for Linux\"",
+  "gedit": "\"from GNOME environment for Linux\"",
+  "vim": "\"\""
+}
