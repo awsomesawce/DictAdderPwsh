@@ -1,0 +1,21 @@
+{
+  "moduleList": {
+    "Get-ChildItemColor": {
+      "typeSource": "PackageManager",
+      "description": "Outputs content of directory but each file is a different color depending on their file type",
+      "source": "chocolatey package manager",
+      "drawbacks": "is not a full implementation",
+      "name": "Get-ChildItemColor"
+    },
+    "MySetup": {
+      "typeSource": "scoop package manager",
+      "drawbacks": "None yet",
+      "source": "scoop packagg manage",
+      "description": "# Description of MySetup\n\nEverything is included with the profile file",
+      "name": "MySetup"
+    },
+    "a": {
+      "s": "a"
+    }
+  }
+}

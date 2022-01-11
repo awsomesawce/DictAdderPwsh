@@ -1,0 +1,14 @@
+{
+  "moduleList": {
+    "Get-ChildItemColor": {
+      "description": "Outputs content of directory but each file is a different color depending on their file type",
+      "name": "Get-ChildItemColor",
+      "drawbacks": "is not a full implementation",
+      "source": "chocolatey package manager",
+      "typeSource": "PackageManager"
+    },
+    "a": {
+      "s": "a"
+    }
+  }
+}
