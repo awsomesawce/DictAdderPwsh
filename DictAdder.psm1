@@ -114,3 +114,14 @@ function Add-scoopinfotohydict {
         Write-Error "Wrong Data type, not hybrid dictionary"
     }
 }
+function obj_to_file {
+param(
+[Parameter()]
+[object]$Obj,
+[Parameter(Mandatory=$false)]
+[ValidateNotNullOrEmpty()][string]$FileName
+)
+$jsonstring = $Obj | convertto-json
+Set-Content -Value $jsonstring -Path "$FileName" -Confirm -Verbose
+return "Put jsonstring into $FileName"
+}
